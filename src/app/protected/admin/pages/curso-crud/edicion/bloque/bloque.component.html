@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Edición de bloque #{{data.orden}}</h2>
+<mat-dialog-content class="mat-typography row">
+    <form [formGroup]="formBloque" autocomplete="off">
+        <div class="col-12">
+            <mat-label>Nombre</mat-label>
+            <mat-form-field class="col-12" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre">
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-flat-button color="primary" [disabled]="formBloque.invalid" (click)="guardar(formBloque.value)">
+        <mat-icon>save</mat-icon> Guardar
+    </button>
+</mat-dialog-actions>

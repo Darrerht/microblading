@@ -1,0 +1,51 @@
+.waapu {
+    min-height: 100vh;
+    height: 100%;
+}
+.menu {
+    width: 16em;
+    height: 100vh;
+    background-color: #CFB53B;
+    color: #FFF;
+    display: flex;
+}
+.contenido {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: rgba(238, 236, 236, 0.76);
+}
+.espacio {
+    flex: 1 1 auto;
+}
+.foto-cont {
+    display: flex;
+    align-content: center;
+}
+.home-link {
+    background-color: #FFF;
+    border-bottom: 4px;
+}
+.imagen-perfil {
+    margin-top: 1em;
+    max-width: 200px;
+    max-height: 200px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1em;
+}
+
+.c-panel {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+
+.c-divider {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

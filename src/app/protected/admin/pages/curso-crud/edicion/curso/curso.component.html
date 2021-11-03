@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Edición del curso {{data.nombre}}</h2>
+<mat-dialog-content class="mat-typography row">
+    <form [formGroup]="formCurso">
+        <div class="col-12">
+            <mat-label>Nombre</mat-label>
+            <mat-form-field class="col-12" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre">
+            </mat-form-field>
+            <mat-label>Descripción</mat-label>
+            <mat-form-field class="col-12" appearance="outline">
+                <mat-label>Descripción</mat-label>
+                <input matInput formControlName="descripcion">
+            </mat-form-field>
+            <div class="col-12">
+                <mat-label>Fecha de Inicio</mat-label>
+                <mat-form-field appearance="outline" class="col-12">
+                    <mat-label>Fecha de inicio</mat-label>
+                    <input matInput [matDatepicker]="dp1" formControlName="fechaInicio">
+                    <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                    <mat-datepicker #dp1></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div class="col-12">
+                <mat-label>Fecha de Final</mat-label>
+                <mat-form-field appearance="outline" class="col-12">
+                    <mat-label>Fecha Final</mat-label>
+                    <input matInput [matDatepicker]="dp2" formControlName="fechaFinal">
+                    <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                    <mat-datepicker #dp2></mat-datepicker>
+                  </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<div mat-dialog-actions  align="end">
+    <button mat-flat-button color="primary" (click)="guardar(formCurso.value)" [disabled]="formCurso.invalid"><mat-icon>save</mat-icon> Guardar</button>
+    <button mat-flat-button mat-dialog-close>Cancelar</button>
+</div>

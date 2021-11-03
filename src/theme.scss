@@ -1,0 +1,47 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+
+$md-golden: (
+    50 : #f9f6e7,
+    100 : #f1e9c4,
+    200 : #e7da9d,
+    300 : #ddcb76,
+    400 : #d6c058,
+    500 : #cfb53b,
+    600 : #caae35,
+    700 : #c3a52d,
+    800 : #bd9d26,
+    900 : #b28d19,
+    A100 : #fff9e6,
+    A200 : #ffebb3,
+    A400 : #ffde80,
+    A700 : #ffd867,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #fff,
+        600 : #fff,
+        700 : #fff,
+        800 : #fff,
+        900 : #fff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$theming-material-components-primary: mat-palette($md-golden, 500);
+$theming-material-components-accent: mat-palette($mat-indigo, A200, A100, A400);
+$theming-material-components-warn: mat-palette($mat-purple);
+$theming-material-components-theme: mat-light-theme(
+  $theming-material-components-primary,
+  $theming-material-components-accent,
+  $theming-material-components-warn
+);
+
+@include angular-material-theme($theming-material-components-theme);

@@ -1,0 +1,43 @@
+<mat-drawer-container class="waapu">
+    <mat-drawer #menu class="menu mat-elevation-z1" mode="side" opened="true">
+        <div class="foto-cont" >
+            <img class="imagen-perfil mat-elevation-z2"[src]="usuario.img">
+        </div>
+        <mat-divider class="c-divider"></mat-divider>
+        <mat-nav-list>
+            <a mat-list-item><mat-icon>home</mat-icon> Inicio</a>
+        </mat-nav-list>
+        <mat-divider class="c-divider"></mat-divider>
+        <div class="c-panel mat-elevation-z2" *ngFor="let m of menus;">
+            <mat-expansion-panel >
+                <mat-expansion-panel-header>
+                    {{m.seccion}}
+                </mat-expansion-panel-header>
+                <mat-nav-list *ngFor="let h of m.hijos">
+                    <a mat-list-item [routerLink]="h.link"><mat-icon style="margin-right: 1em;">{{h.icono}}</mat-icon> {{h.nombre}}</a>
+                    <mat-divider></mat-divider>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content class="contenido">
+        <mat-toolbar color="primary" class="mat-elevation-z1">
+            <button  class="mat-elevation-z2" *ngIf="!menu.opened" mat-icon-button (click)="menu.open()">
+                <mat-icon>menu</mat-icon>
+              </button>
+            <button class="mat-elevation-z2" *ngIf="menu.opened" mat-icon-button (click)="menu.toggle()">
+                <mat-icon>menu</mat-icon>
+              </button>
+            <span>Academia de Microblading</span>
+            <span class="espacio"></span>
+            <button (click)="logOut()" mat-icon-button class="mat-elevation-z2" aria-label="Example icon-button with share icon">
+              <mat-icon>logout</mat-icon>
+            </button>
+          </mat-toolbar>
+        <router-outlet></router-outlet>
+        <!-- <a routerLink="admin/">ASDMIN</a>
+        <pre>{{usuario | json}}</pre>
+        <button (click)="navegar()">asdasd</button> -->
+    </mat-drawer-content>
+
+</mat-drawer-container>

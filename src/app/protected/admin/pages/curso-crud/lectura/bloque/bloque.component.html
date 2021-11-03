@@ -1,0 +1,78 @@
+<!-- <div class="row" style="margin: 1em" *ngIf="estadoI">
+    <div class="col-12">
+        Edición de contenido para el bloque {{'bloque'}} del curso {{'nombre'}}
+    </div>
+    
+    
+</div>
+<div class="row">
+    <div class="d-flex justify-content-end">
+        <button mat-flat-button color="primary">Guardar</button>
+        <button mat-flat-button color="warn">Cancelar</button>
+    </div>
+</div> -->
+<h2 mat-dialog-title>Edición de contenido el curso {{data.nombre}}</h2>
+<mat-dialog-content *ngIf="estadoI">
+    <div class="accordion" id="accordion-bloques">
+        <div class="accordion-item" *ngFor="let bloque of bloques; let i = index">
+            <h2 class="accordion-header" [id]="'flush-'+i">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#flush-c' + i" aria-expanded="false" [attr.aria-controls]="'flush-c'+i">
+                    {{bloque.nombre}}
+                </button>
+            </h2>
+
+            <div [id]="'flush-c'+i" class="accordion-collapse collapse" [attr.aria-labelledby]="'flush-'+i"
+                data-bs-parent="#accordion-bloques">
+                <div class="accordion-body">
+                    <div class="accordion" id="accordion-temas">
+                        <div class="accordion-item" *ngFor="let tema of bloque.temas; let j = index">
+                            <h2 class="accordion-header" [id]="'flush-t-' + j">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    [attr.data-bs-target]="'#flush-c-t' + j" aria-expanded="false"
+                                    [attr.aria-controls]="'flush-c-t'+j">
+                                    {{tema.nombre}}
+                                </button>
+                            </h2>
+                            <div [id]="'flush-c-t'+j" class="accordion-collapse collapse"
+                                [attr.aria-labelledby]="'flush-t-'+j" data-bs-parent="#accordion-temas">
+                                <div class="accordion-body">
+                                    <div [innerHTML]="tema.contenidoHTML | HTMLSanitizer"></div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="d-flex justify-content-end">
+                                                <button mat-flat-button color="accent">Tareas</button>
+                                                <button style="margin-left: 1em;" mat-flat-button color="primary" (click)="enviarTema(tema)"><mat-icon>edit</mat-icon> Editar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end p-2">
+                
+                <button mat-flat-button color="primary" (click)="editarBloque(bloque)">
+                    <mat-icon>edit</mat-icon> Editar Bloque
+                </button>
+                <button style="margin-left: 1em;" mat-flat-button color="warn" (click)="enviarBloque(bloque)"><mat-icon>add</mat-icon> Nuevo Tema</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-content *ngIf="!estadoI">
+    <div class="d-flex justify-content-center">
+        <mat-spinner diameter="100"></mat-spinner>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button color="primary" (click)="editarCurso()">
+        <mat-icon>edit</mat-icon> Editar Curso
+    </button>
+    <button mat-flat-button color="warn" (click)="enviarCurso(data._id)">
+        <mat-icon>add</mat-icon> Nuevo Bloque
+    </button>
+    <button mat-flat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
