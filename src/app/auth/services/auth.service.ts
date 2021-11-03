@@ -63,6 +63,7 @@ export class AuthService {
         );
         const req = this.http.get<AuthResponse>(url, { headers }).pipe(
             map((res) => {
+                console.log('restoken', res)
                 if (res.usuario) {
                     this._usuario = res.usuario;
                     localStorage.setItem('token', res.token!);
