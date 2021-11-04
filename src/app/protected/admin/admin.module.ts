@@ -18,6 +18,7 @@ import { TemaComponent as EdicionTema } from './pages/curso-crud/edicion/tema/te
 import { TemaComponent as CreacionTema } from './pages/curso-crud/creacion/tema/tema.component';
 import { CursoComponent as  EdicionCurso} from './pages/curso-crud/edicion/curso/curso.component';
 import { CursoComponent as CreacionCurso } from './pages/curso-crud/creacion/curso/curso.component';
+import { VideosCrudComponent } from './pages/videos-crud/videos-crud.component';
 
 
 
@@ -36,7 +37,8 @@ import { CursoComponent as CreacionCurso } from './pages/curso-crud/creacion/cur
     HTMLSanitizerPipe,
     EdicionCurso,
     CreacionCurso,
-    TareasCrudComponent
+    TareasCrudComponent,
+    VideosCrudComponent
   ],
   imports: [
     CommonModule,

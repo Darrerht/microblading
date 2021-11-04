@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@ang
 import { modules } from '../../creacion/modulos-quill';
 import Swal from 'sweetalert2';
 import { AdminCrusoService } from '../../../../services/admin-cruso.service';
+import { AdminVideosService } from '../../../../services/admin-videos.service';
 
 @Component({
     templateUrl: './tema.component.html',
@@ -13,13 +14,18 @@ export class TemaComponent implements OnInit {
 
     modules = {};
     formTema: FormGroup = this.fb.group({})
-
+    videosID: any[] = [];
     get videos() {
         return this.formTema.get('videos') as FormArray;
     }
 
-    constructor(private dialogRef: MatDialogRef<TemaComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private adminService: AdminCrusoService) { 
+    constructor(private dialogRef: MatDialogRef<TemaComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private adminService: AdminCrusoService, private videoService: AdminVideosService) { 
         this.modules = modules;
+        this.videoService.getVideosTipo('61808983c44e849cb09dfc94').subscribe((res: any) => {
+            
+            this.videosID = res.videos;
+            console.log('videos res', this.videosID)
+        })
         this.formTema = this.fb.group({
             nombre: [this.data.nombre, [Validators.required]],
             contenidoHTML: [this.data.contenidoHTML, [Validators.required]],

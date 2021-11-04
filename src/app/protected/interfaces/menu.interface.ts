@@ -33,7 +33,11 @@ export const menu: menuInterface = {
                     link: '/dashboard/admin/tareas',
                     icono: 'info'
                 },
-
+                {
+                    nombre: 'Videos',
+                    link: '/dashboard/admin/videos',
+                    icono: 'videocam'
+                },
                 {
                     nombre: 'Evaluaciones',
                     link: '/dashboard/admin/evaluaciones',

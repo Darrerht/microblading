@@ -26,3 +26,7 @@ export interface cursoRes {
     ok: boolean;
     msg?: string;
 }
+export interface genRes {
+    ok: boolean;
+    msg?: string;
+}

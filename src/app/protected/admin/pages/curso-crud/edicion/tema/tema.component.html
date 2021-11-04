@@ -28,7 +28,7 @@
                 <mat-form-field appearance="outline" class="col-12">
                     <mat-label>{{'Video ' + (i + 1)}}</mat-label>
                     <mat-select [formControlName]="i">
-                        <mat-option [value]="1">1</mat-option>
+                        <mat-option *ngFor="let v of videosID;" [value]="v._id">{{v.nombre}}</mat-option>
                         <mat-option [value]="2">2</mat-option>
                         <mat-option [value]="3">3</mat-option>
                         <mat-option [value]="4">4</mat-option>

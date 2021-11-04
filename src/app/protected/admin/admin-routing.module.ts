@@ -4,6 +4,7 @@ import { MainComponent } from './pages/main/main.component';
 import { UsuarioCrudComponent } from './pages/usuario-crud/usuario-crud.component';
 import { CursoCrudComponent } from './pages/curso-crud/curso-crud.component';
 import { TareasCrudComponent } from './pages/tareas-crud/tareas-crud.component';
+import { VideosCrudComponent } from './pages/videos-crud/videos-crud.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
             {
                 path: 'tareas',
                 component: TareasCrudComponent
+            },
+            {
+                path: 'videos',
+                component: VideosCrudComponent
             }
         ]
     }

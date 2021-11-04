@@ -1,0 +1,43 @@
+<div class="row mt-3 custom-border mat-elevation-z5">
+    <div class="col-12" style="margin-left: 2em;">
+        <h2 class="titulo">Subida de videos</h2>
+    </div>
+    <form [formGroup]="formNombre">
+        <div class="col-12">
+            <mat-label>Nombre:</mat-label>
+            <mat-form-field appearance="outline" class="col-12">
+                <mat-label>Nombre</mat-label>
+                <input autocomplete="off" required="true" matInput formControlName="nombre"
+                    placeholder="Nombre del video.">
+            </mat-form-field>
+        </div>
+        <div class="col-12">
+            <mat-label>Tipo de contenido:</mat-label>
+            <mat-form-field appearance="outline" class="col-12">
+                <mat-label>Tipo de contenido</mat-label>
+                <mat-select formControlName="tipo">
+                    <mat-option value="61808983c44e849cb09dfc94">Contenido para Curso</mat-option>
+                    <mat-option value="61808989c44e849cb09dfc98">Contenido para Tareas</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </form>
+    <div class="col-12">
+        <input #inputFile hidden="true" type="file" (change)="upload($event)">
+        <button (click)="inputFile.click()" mat-flat-button color="warn">
+            <mat-icon>attach_file</mat-icon> Archivo
+        </button>
+    </div>
+    <div class="col-12">
+        <button mat-flat-button (click)="subir()" [disabled]="!archivoValido || formNombre.invalid" color="primary">
+            <mat-icon>upload</mat-icon> {{textoBoton}}
+        </button>
+    </div>
+    <div class="col-12" *ngIf="mostrarErrores">
+        <h3 class="mensaje-error">{{mensajeError}}</h3>
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="cargaVideo">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
